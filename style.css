@@ -1,0 +1,567 @@
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url(https://fonts.googleapis.com/css?family=Modern+Antiqua);
+
+/* reset */
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,form,fieldset,input,textarea,p,blockquote,th,td{margin:0;padding:0;}
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;}
+ul{list-style:none;}
+table{border-collapse:collapse;border-spacing:0;}
+caption,th{text-align:left;}
+q:before,q:after{content:'';}
+object,embed{vertical-align:top;}
+h1,h2,h3,h4,h5,h6{font-size:100%;}
+img,abbr,acronym,fieldset{border:0;}
+
+body{
+	font: 14px/1.9 'Noto Sans JP', Arial, Verdana, 游ゴシック, YuGothic,'ヒラギノ角ゴ ProN W3', 'Hiragino Kaku Gothic ProN', メイリオ, Meiryo,sans-serif;
+	font-weight: 300;
+	-webkit-text-size-adjust:100%;
+	overflow-x: hidden;
+	color: #000;
+}
+
+a{
+	color: #0066ff;
+	text-decoration: none;
+}
+
+a:hover, .active{
+  text-decoration: underline;
+}
+
+a:active, a:focus,input:active, input:focus{outline:0;}
+
+
+/* ヘッダー
+------------------------------------------------------------*/
+#mainnav a{
+	color: #000;
+	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+}
+
+.hamburger {
+  display : block;
+  position: fixed;
+  z-index : 3;
+  right : 13px;
+  top   : 12px;
+  width : 42px;
+  height: 42px;
+  cursor: pointer;
+  text-align: center;
+}
+.hamburger span {
+  display : block;
+  position: absolute;
+  width   : 30px;
+  height  : 2px ;
+  left    : 6px;
+  background : #555;
+  -webkit-transition: 0.3s ease-in-out;
+  -moz-transition   : 0.3s ease-in-out;
+  transition        : 0.3s ease-in-out;
+}
+.hamburger span:nth-child(1) {
+  top: 10px;
+}
+.hamburger span:nth-child(2) {
+  top: 20px;
+}
+.hamburger span:nth-child(3) {
+  top: 30px;
+}
+
+/* ナビ開いてる時のボタン */
+.hamburger.active {
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition     : all 0.3s ease-in-out;
+  transition        : all 0.3s ease-in-out;
+  -webkit-transition-delay: 0.6s;
+  -o-transition-delay     : 0.6s;
+  transition-delay        : 0.6s;
+  -webkit-transform: rotate(45deg);
+  -ms-transform    : rotate(45deg);
+  -o-transform     : rotate(45deg);
+  transform        : rotate(45deg);
+}
+.hamburger.active span:nth-child(2){
+  width: 0px;
+}
+.hamburger.active span:nth-child(1),
+.hamburger.active span:nth-child(3){
+  background :#fff;
+  -webkit-transition-delay: 0.3s;
+  -o-transition-delay: 0.3s;
+  transition-delay: 0.3s;
+}
+.hamburger.active span:nth-child(1){
+  -webkit-transform: translateY(4px);
+  -ms-transform    : translateY(4px);
+  -o-transform     : translateY(4px);
+  transform        : translateY(4px);
+}
+
+.hamburger.active span:nth-child(3){
+  -webkit-transform: translateY(-16px) rotate(90deg);
+  -ms-transform: translateY(-16px) rotate(90deg);
+  -o-transform : translateY(-16px) rotate(90deg);
+  transform    : translateY(-16px) rotate(90deg);
+}
+
+
+nav.globalMenuSp {
+  position: fixed;
+  z-index : 2;
+  top  : 0;
+  left : 0;
+  color: #fff;
+  font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+  background: rgba(0,0,0,0.7);
+  text-align: center;
+  width: 100%;
+  opacity: 0;
+  transition: opacity .6s ease, visibility .6s ease;
+}
+
+nav.globalMenuSp ul {
+  margin: 0 auto;
+  padding: 0;
+  width: 100%;
+}
+
+nav.globalMenuSp ul li {
+  list-style-type: none;
+  padding: 0;
+  width: 100%;
+  transition: .4s all;
+}
+nav.globalMenuSp ul li:last-child {
+  padding-bottom: 0;
+}
+nav.globalMenuSp ul li:hover{
+  background :#ddd;
+}
+
+nav.globalMenuSp ul li a {
+  display: block;
+  color: #fff;
+  padding: 1em 0;
+  text-decoration :none;
+}
+
+/* このクラスを、jQueryで付与・削除する */
+nav.globalMenuSp.active {
+  opacity: 100;
+
+}
+
+
+/* フッター
+------------------------------------------------------------*/
+#footer{
+	clear: both;
+	padding: 50px 10px 50px 0;
+	text-align: center;
+	font-size: 12px;
+}
+
+
+/* 共通
+------------------------------------------------------------*/
+h1, h2{
+	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+}
+
+img{
+	max-width: 100%;
+	height: auto;
+}
+
+h1 {
+	font-size: 24px;
+}
+
+section{
+  clear: both;
+}
+
+section h2{
+	width: 60%;
+	margin: 70px auto;
+	font-size: 22px;
+	font-weight:normal;
+	text-align: center;
+}
+
+section h2 span {
+	padding-bottom: 20px;
+	border-bottom: 3px solid #000;
+}
+
+.inner{
+	width: 80%;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+
+#sec01 .inner, #sec02 .inner, #sec03 .inner, #sec04 .inner, #sec05 .inner{
+	border-bottom: 1px solid #a0a0a0;
+}
+
+.innerS{
+	width: 60%;
+	margin: 0 auto;
+	padding-bottom: 80px;
+}
+
+/* TOP 
+------------------------------------------------------------*/
+.storename {
+	text-align: center;
+	margin-bottom: 10px;
+	font-size: 20px;
+	background: linear-gradient(transparent 50%, silver);
+}
+
+.contact {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.5em 1em;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: black;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #c58668;
+}
+
+.contact:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+.top-menu {
+	display: flex;
+	flex-wrap: wrap;
+	color: white;
+	font-size: 10px;
+	text-align: center;
+}
+
+.top-menu p {
+	width: 48%;
+	margin: 1%;
+	border-radius: 20px;
+	background-color: black;
+}
+
+.comment {
+	text-align: center;
+}
+
+.fas {
+	padding-right: 10px;
+}
+
+/* SEC02 FOOD & DRINK
+------------------------------------------------------------*/
+#sec02{
+	padding: 0 !important;
+}
+
+.fd-title {
+	text-align: center;
+	font-size: 18px;
+	font-family: 'Modern Antiqua', 'Noto Sans JP',serif;
+}
+
+.fdmenu {
+	margin-bottom: 20px;
+}
+
+.more {
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.5em 1em;
+  text-decoration: none;
+  border-radius: 4px;
+  color: black;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #c58668;
+}
+
+.more:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+/* SEC03 ROOM
+------------------------------------------------------------*/
+.col4 .img{
+	margin: 0 auto;
+}
+
+.room-wrapper {
+	text-align: center;
+}
+
+.room-wrapper h3{
+	font-size: 18px;
+}
+
+.room-wrapper h4{
+	font-size: 18px;
+	font-weight: normal;
+}
+
+.joy-dam {
+	padding-bottom: 50px;
+}
+
+.joy-dam li{
+	list-style: circle;
+	font-size: 18px;
+	width: 55%;
+	margin: 0 auto;
+}
+
+.newface {
+	background: linear-gradient(transparent 50%, orange);
+}
+
+
+/* SEC04 PRICE LIST
+------------------------------------------------------------*/
+#sec04{
+	padding-bottom: 0 !important;
+}
+
+.article{
+	clear: both;
+	overflow: hidden;
+	padding-bottom: 50px;
+}
+
+.article img{
+	float: left;
+	margin: 5px 20px 20px;
+}
+
+.article p{
+	margin-bottom: 20px;
+}
+
+
+
+/* SEC05 ACCESS
+------------------------------------------------------------*/
+#sec05 p{
+	margin-bottom: 5px;
+}
+
+.col2 li{
+	display: inline-block;
+	width: 100%;
+  　margin: 20px 0;
+}
+
+#map{
+	position: relative;
+	padding-bottom: 75%;
+	height: 0;
+	overflow: hidden;
+	z-index: 0;
+}
+
+#map iframe{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100% !important;
+	height: 100% !important;
+	border: 0;
+}
+
+/* SEC06 STORE
+------------------------------------------------------------*/
+
+.contact {
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  text-align: center;
+  padding: 0.5em 1em;
+  margin-top: 20px;
+  text-decoration: none;
+  border-radius: 4px;
+  color: black;
+  background-image: linear-gradient(45deg, #FFC107 0%, #ff8b5f 100%);
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+  border-bottom: solid 3px #c58668;
+}
+
+.contact:active {
+  -webkit-transform: translateY(4px);
+  transform: translateY(4px);
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: none;
+}
+
+/* RESPONSIVE 設定
+------------------------------------------------------------*/
+
+@media only screen and (min-width: 800px){
+	body{
+		font-size:14px;
+	}
+	
+	#wrapper{
+		width: 100%;
+	}
+	
+	#content{
+		width: 80%;
+	}
+	
+	#sidebar{
+		width: 12%;
+		position: fixed;
+		top: 0;
+		right: 4%;
+	}	
+
+	.panel{
+		display:block !important;
+	}
+	
+	#sidebar h1{
+		padding: 30px 0;
+	}
+
+	#mainnav li{
+		font-size: 14px;
+		padding: 10px 0;
+	}
+	
+	#sns{
+		margin-top: 50px;
+	}
+	
+	#sns li{
+		display: inline-block;
+		padding-right: 10px;
+	}
+
+	#sns a:hover img{
+		opacity: .8;
+	}
+	
+	/* ROOM
+	-----------------*/
+	.col4{
+		text-align: center;
+	}
+
+	.col4 li{
+		display: inline-block;
+		width: 18%;
+		padding: 0 3%;
+		vertical-align: top;
+		text-align: left;
+	}
+	
+	#map iframe{
+		height: 200px !important;
+  }
+	
+  #footer{
+		padding: 30px 10px 70px 0;
+	}
+}
+
+
+@media only screen and (min-width: 641px){
+	.col2 li{
+		width: 60%;
+		vertical-align: top;
+	}
+	.col2 li:first-child{
+		width: 35%;
+		padding-right: 4%;
+	}
+}
+
+@media only screen and (max-width: 640px){
+	.innerS{
+		width: 94%;
+		padding-bottom: 30px;
+	}
+	#gallery li{
+		float: none;
+		width: 100%;
+	}
+	.article img{
+		float: none;
+		display: block;
+		margin: 0 auto 20px;
+	}
+	#map iframe{
+		width: 96% !important;
+		left: 2%;
+	}
+}
+
+@media only screen and (max-width: 799px){
+	#sidebar{
+		position: fixed;
+		width: 100%;
+		z-index:500;
+	}
+	
+	#sidebarWrap{
+		position: relative;
+		width: 100%;
+		height: 60px;
+		background-color: white;
+		box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+	}
+	
+	#sidebar h1{
+		text-align: center;
+		padding-top: 15px;
+	}
+	
+	#sidebar h1 img{
+		width: auto !important;
+		max-height: 25px;
+	}
+
+	.panel{
+		width: 100%;
+		display: none;
+		overflow: hidden;
+		position: relative;
+		left: 0;
+		top: -10px;
+		z-index: 100;
+	}
+
+	
+	.col4 li{
+		margin: 0 auto 50px;
+		display: block;
+		text-align: center;
+	}
+	section h2{
+		margin: 55px auto;
+	}
+}
